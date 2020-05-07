@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solex.DevTask.Api.Models\Solex.DevTask.Api.Models.csproj" />
+    <ProjectReference Include="..\Solex.DevTask.Domain\Solex.DevTask.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

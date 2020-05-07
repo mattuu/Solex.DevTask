@@ -23,17 +23,30 @@ namespace Solex.DevTask.Api.Tests
         }
 
         [Theory, WebApiAutoMoqData]
-        public void Get_ShouldReturnCorrectResult([Frozen] Mock<IKoszykService> koszykServiceMock, IEnumerable<ProduktModel> produkty, KoszykController sut)
+        public void Get_ShouldReturnOkResult_WhenServiceReturnsData([Frozen] Mock<IKoszykService> koszykServiceMock, IEnumerable<ProduktModel> produkty, KoszykController sut)
         {
             // arrange
             koszykServiceMock.Setup(m => m.PobierzKoszyk()).Returns(produkty);
 
             // act
-            var actual = sut.Get().Result as OkObjectResult;
+            var actual = sut.Get().Result;
 
             // assert
-            actual.StatusCode.ShouldBe(200);
-            actual.Value.ShouldBe(produkty);
+            actual.ShouldBeOfType<OkObjectResult>();
+            (actual as OkObjectResult).Value.ShouldBe(produkty);
+        }
+
+        [Theory, WebApiAutoMoqData]
+        public void Get_ShouldReturnNotFoundResult_WhenServiceReturnsNoData([Frozen] Mock<IKoszykService> koszykServiceMock, KoszykController sut)
+        {
+            // arrange
+            koszykServiceMock.Setup(m => m.PobierzKoszyk()).Returns(default(IEnumerable<ProduktModel>));
+
+            // act
+            var actual = sut.Get().Result;
+
+            // assert
+            actual.ShouldBeOfType<NotFoundResult>();
         }
     }
 }

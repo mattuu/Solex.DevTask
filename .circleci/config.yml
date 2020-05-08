@@ -11,3 +11,6 @@ jobs:
       - checkout
       - run: dotnet build
       - run: dotnet test .\test\Solex.DevTask.Api.Tests\bin\Debug\netcoreapp3.0\Solex.DevTask.Api.Tests.dll
+      - store_test_results:
+          path: test-results
+    

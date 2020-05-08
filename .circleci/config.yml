@@ -10,5 +10,6 @@ jobs:
     steps:
       - checkout
       - run: dotnet build
-      - run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov .\test\Solex.DevTask.Api.Tests\bin\Debug\netcoreapp3.0\Solex.DevTask.Api.Tests.dll 
-    
+      - run: dotnet test
+      - store_test_results:
+          path: test-results

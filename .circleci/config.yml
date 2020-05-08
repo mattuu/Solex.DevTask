@@ -11,3 +11,6 @@ jobs:
       - checkout
       - run: dotnet build
       - run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      - run: 
+          shell: powershell.exe
+          command: .\.circleci\codecov.ps1 -token 948aac85-7d24-42b3-8fb9-1dd6bf34b0da

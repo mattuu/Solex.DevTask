@@ -1,6 +1,0 @@
-language: csharp
-solution: Solex.DevTask.sln
-install:
-  - dotnet restore
-script:
-  - dotnet test .\test\Solex.DevTask.Api.Tests\Solex.DevTask.Api.Tests.csproj

@@ -10,4 +10,4 @@ jobs:
     steps:
       - checkout
       - run: dotnet build
-      - run: dotnet test
+      - run: dotnet test .\test\Solex.DevTask.Api.Tests\bin\Debug\netcoreapp3.0\Solex.DevTask.Api.Tests.dll

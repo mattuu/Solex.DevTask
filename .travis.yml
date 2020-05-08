@@ -5,4 +5,4 @@ install:
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - msbuild Solex.DevTask.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Solex.DevTask.Api.Tests/bin/Debug/Solex.DevTask.Api.Tests.dll
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./test/Solex.DevTask.Api.Tests/bin/Debug/netcoreapp3.0/Solex.DevTask.Api.Tests.dll

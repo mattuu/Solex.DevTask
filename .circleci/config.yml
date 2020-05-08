@@ -10,6 +10,5 @@ jobs:
     steps:
       - checkout
       - run: dotnet build
-      - run: dotnet test
-      - store_test_results:
-          path: ~\test-results
+      - run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      - run: bash <(curl -s https://codecov.io/bash)

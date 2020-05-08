@@ -1,8 +1,6 @@
 language: csharp
 solution: Solex.DevTask.sln
 install:
-  - nuget restore Solex.DevTask.sln
-  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+  - dotnet restore
 script:
-  - msbuild Solex.DevTask.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./test/Solex.DevTask.Api.Tests/bin/Debug/netcoreapp3.0/Solex.DevTask.Api.Tests.dll
+  - dotnet test .\test\Solex.DevTask.Api.Tests\Solex.DevTask.Api.Tests.csproj

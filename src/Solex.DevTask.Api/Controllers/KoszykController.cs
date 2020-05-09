@@ -34,5 +34,20 @@ namespace Solex.DevTask.Api.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult DodajProduktDoKoszyka(DodajProduktModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _koszykService.DodajProdukt(model.Id, model.Ilosc);
+
+            return new StatusCodeResult(201);
+        }
+
+
     }
 }

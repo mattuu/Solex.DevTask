@@ -150,5 +150,20 @@ namespace Solex.DevTask.Api.Tests
             // assert
             koszykServiceMock.Verify(m => m.UsunProdukt(It.Is<int>(i => i == id)), Times.Once());
         }
+
+        [Theory, WebApiAutoMoqData]
+        public void PobierzKoszykWartosc_ShouldReturnCorrectResult([Frozen] Mock<IKoszykService> koszykServiceMock, decimal koszykWartosc,
+            KoszykController sut)
+        {
+            // arrange
+            koszykServiceMock.Setup(m => m.PobierzKoszykWartosc()).Returns(koszykWartosc);
+
+            // act
+            var actual = sut.PobierzKoszykWartosc();
+
+            // assert
+            actual.ShouldBeOfType<OkObjectResult>();
+            (actual as OkObjectResult).Value.ShouldBe(koszykWartosc);
+        }
     }
 }

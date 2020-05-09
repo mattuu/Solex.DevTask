@@ -57,10 +57,16 @@ namespace Solex.DevTask.Api.Controllers
                 _koszykService.UsunProdukt(id);
                 return NoContent();
             }
-            catch (ItemNotFoundException exception)
+            catch (ItemNotFoundException)
             {
                 return NotFound();
             }
+        }
+
+        [HttpGet("total")]
+        public IActionResult PobierzKoszykWartosc()
+        {
+            return Ok(_koszykService.PobierzKoszykWartosc());
         }
     }
 }

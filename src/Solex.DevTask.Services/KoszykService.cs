@@ -17,7 +17,7 @@ namespace Solex.DevTask.Services
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _koszykRepository = koszykRepository ?? throw new ArgumentNullException(nameof(koszykRepository));
-            _mapper = mapper;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public void DodajProdukt(int id, decimal ilosc)

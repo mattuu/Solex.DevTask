@@ -136,7 +136,7 @@ namespace Solex.DevTask.Api.Tests
             var actual = sut.UsunZKoszyka(id);
 
             // assert
-            actual.ShouldBeOfType<NotFoundObjectResult>();
+            actual.ShouldBeOfType<NotFoundResult>();
         }
 
         [Theory]

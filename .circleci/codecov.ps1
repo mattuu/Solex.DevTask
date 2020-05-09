@@ -1,10 +1,6 @@
 param
 (
-  $token
-)
-
-param
-(
+  $token,
   $fName
 )
 

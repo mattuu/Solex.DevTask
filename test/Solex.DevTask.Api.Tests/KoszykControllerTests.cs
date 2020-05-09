@@ -6,6 +6,7 @@ using Moq;
 using Shouldly;
 using Solex.DevTask.Api.Controllers;
 using Solex.DevTask.Api.Models;
+using Solex.DevTask.Domain.Exceptions;
 using Solex.DevTask.Interfaces;
 using Solex.DevTest.TestUtils;
 using Xunit;
@@ -109,6 +110,45 @@ namespace Solex.DevTask.Api.Tests
 
             // assert
             koszykServiceMock.Verify(m => m.DodajProdukt(It.IsAny<int>(), It.IsAny<decimal>()), Times.Never());
+        }
+
+        [Theory]
+        [WebApiAutoMoqData]
+        public void UsunZKoszyka_ShouldReturnNoContent_WhenItemRemoved(
+            [Frozen] Mock<IKoszykService> koszykServiceMock, int id, KoszykController sut)
+        {
+            // act
+            var actual = sut.UsunZKoszyka(id);
+
+            // assert
+            actual.ShouldBeOfType<NoContentResult>();
+        }
+
+        [Theory]
+        [WebApiAutoMoqData]
+        public void UsunZKoszyka_ShouldReturnNotFound_WhenItemNotExist(
+            [Frozen] Mock<IKoszykService> koszykServiceMock, int id, KoszykController sut)
+        {
+            // arrange
+            koszykServiceMock.Setup(m => m.UsunProdukt(It.Is<int>(i => i == id))).Throws<ItemNotFoundException>();
+
+            // act
+            var actual = sut.UsunZKoszyka(id);
+
+            // assert
+            actual.ShouldBeOfType<NotFoundObjectResult>();
+        }
+
+        [Theory]
+        [WebApiAutoMoqData]
+        public void UsunZKoszyka_ShouldRemoveItem_WhenItemExists(
+            [Frozen] Mock<IKoszykService> koszykServiceMock, int id, KoszykController sut)
+        {
+            // act
+            var actual = sut.UsunZKoszyka(id);
+
+            // assert
+            koszykServiceMock.Verify(m => m.UsunProdukt(It.Is<int>(i => i == id)), Times.Once());
         }
     }
 }

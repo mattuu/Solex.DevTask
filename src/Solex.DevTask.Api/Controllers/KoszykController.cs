@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Solex.DevTask.Api.Models;
+using Solex.DevTask.Domain.Exceptions;
 using Solex.DevTask.Interfaces;
 
 namespace Solex.DevTask.Api.Controllers
@@ -48,6 +49,18 @@ namespace Solex.DevTask.Api.Controllers
             return new StatusCodeResult(201);
         }
 
-
+        [HttpDelete]
+        public IActionResult UsunZKoszyka(int id)
+        {
+            try
+            {
+                _koszykService.UsunProdukt(id);
+                return NoContent();
+            }
+            catch (ItemNotFoundException exception)
+            {
+                return NotFound();
+            }
+        }
     }
 }

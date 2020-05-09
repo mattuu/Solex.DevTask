@@ -9,15 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2112111-496
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solex.DevTask.Api", "src\Solex.DevTask.Api\Solex.DevTask.Api.csproj", "{8BAE392A-FC03-4C06-9701-135CD2A984E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solex.DevTask.Interfaces", "src\Solex.DevTask.Interfaces\Solex.DevTask.Interfaces.csproj", "{B76C7AB3-696D-4F75-8C4F-111BF20D471E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solex.DevTask.Interfaces", "src\Solex.DevTask.Interfaces\Solex.DevTask.Interfaces.csproj", "{B76C7AB3-696D-4F75-8C4F-111BF20D471E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solex.DevTask.Domain", "src\Solex.DevTask.Domain\Solex.DevTask.Domain.csproj", "{151ECC7E-EBE4-423F-AE21-BCFB8878129C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solex.DevTask.Domain", "src\Solex.DevTask.Domain\Solex.DevTask.Domain.csproj", "{151ECC7E-EBE4-423F-AE21-BCFB8878129C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solex.DevTest.TestUtils", "test\Solex.DevTest.TestUtils\Solex.DevTest.TestUtils.csproj", "{635E52F6-DFF2-4373-BABF-2D9EC7FF2409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solex.DevTest.TestUtils", "test\Solex.DevTest.TestUtils\Solex.DevTest.TestUtils.csproj", "{635E52F6-DFF2-4373-BABF-2D9EC7FF2409}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solex.DevTask.Api.Tests", "test\Solex.DevTask.Api.Tests\Solex.DevTask.Api.Tests.csproj", "{7A596C5D-275D-4F85-890C-299373020DE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solex.DevTask.Api.Models", "src\Solex.DevTask.Api.Models\Solex.DevTask.Api.Models.csproj", "{C3B79FB6-1B84-4F04-974C-F4BC9796248C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solex.DevTask.Api.Models", "src\Solex.DevTask.Api.Models\Solex.DevTask.Api.Models.csproj", "{C3B79FB6-1B84-4F04-974C-F4BC9796248C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solex.DevTask.Services", "src\Solex.DevTask.Services\Solex.DevTask.Services.csproj", "{4DC7A7B0-641A-42BA-94BE-9B898E70346A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solex.DevTask.Services.Tests", "test\Solex.DevTask.Services.Tests\Solex.DevTask.Services.Tests.csproj", "{60057814-8950-4CB2-885E-D13D2B00E9D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +105,30 @@ Global
 		{C3B79FB6-1B84-4F04-974C-F4BC9796248C}.Release|x64.Build.0 = Release|Any CPU
 		{C3B79FB6-1B84-4F04-974C-F4BC9796248C}.Release|x86.ActiveCfg = Release|Any CPU
 		{C3B79FB6-1B84-4F04-974C-F4BC9796248C}.Release|x86.Build.0 = Release|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Debug|x64.Build.0 = Debug|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Debug|x86.Build.0 = Debug|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Release|x64.ActiveCfg = Release|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Release|x64.Build.0 = Release|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Release|x86.ActiveCfg = Release|Any CPU
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A}.Release|x86.Build.0 = Release|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Debug|x64.Build.0 = Debug|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Debug|x86.Build.0 = Debug|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Release|x64.ActiveCfg = Release|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Release|x64.Build.0 = Release|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Release|x86.ActiveCfg = Release|Any CPU
+		{60057814-8950-4CB2-885E-D13D2B00E9D5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +140,8 @@ Global
 		{635E52F6-DFF2-4373-BABF-2D9EC7FF2409} = {9E2EE2C7-3701-4A71-81F4-30CE764B3C4D}
 		{7A596C5D-275D-4F85-890C-299373020DE3} = {9E2EE2C7-3701-4A71-81F4-30CE764B3C4D}
 		{C3B79FB6-1B84-4F04-974C-F4BC9796248C} = {E2112111-496E-4A12-93B2-D7850E83E621}
+		{4DC7A7B0-641A-42BA-94BE-9B898E70346A} = {E2112111-496E-4A12-93B2-D7850E83E621}
+		{60057814-8950-4CB2-885E-D13D2B00E9D5} = {9E2EE2C7-3701-4A71-81F4-30CE764B3C4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3DC50263-1E27-47DB-A986-B89CCAEF7076}

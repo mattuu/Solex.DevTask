@@ -7,11 +7,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Solex.DevTask.Api.Models\Solex.DevTask.Api.Models.csproj" />
     <ProjectReference Include="..\Solex.DevTask.Interfaces\Solex.DevTask.Interfaces.csproj" />
+    <ProjectReference Include="..\Solex.DevTask.Services\Solex.DevTask.Services.csproj" />
   </ItemGroup>
 
 

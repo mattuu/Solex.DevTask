@@ -62,5 +62,45 @@ namespace Solex.DevTask.Services.Tests
             koszykRepositoryMock.Verify(m => m.PobierzKoszyk(), Times.Once());
             actual.ShouldBe(produktModele);
         }
+
+        [Theory]
+        [InlineAutoMoqData(1, 10.1, 2, 9.9, 150.5)]
+        [InlineAutoMoqData(1, 10.1, 0, 0, 101)]
+        [InlineAutoMoqData(1, 9.9, 0, 0, 49.5)]
+        public void PobierzKoszykWartosc_ShouldReturnCorrectValue(int id1, decimal ilosc1, int id2, decimal ilosc2, decimal wartosc, [Frozen] Mock<IKoszykRepository> koszykRepositoryMock, KoszykService sut)
+        {
+            // arrange
+            var produkty = new HashSet<Produkt>();
+            if (id1 != default)
+            {
+                produkty.Add(new Produkt() {Id = id1, Ilosc = ilosc1});
+            };
+            if (id2 != default)
+            {
+                produkty.Add(new Produkt() { Id = id2, Ilosc = ilosc2 });
+            };
+
+            koszykRepositoryMock.Setup(m => m.PobierzKoszyk()).Returns(produkty);
+
+            // act
+            var actual = sut.PobierzKoszykWartosc();
+
+            // assert
+            actual.ShouldBe(wartosc);
+        }
+
+        [Theory, AutoMoqData]
+        public void PobierzKoszykWartosc_ShouldZeroWhenCartIsEmpty([Frozen] Mock<IKoszykRepository> koszykRepositoryMock, KoszykService sut)
+        {
+            // arrange
+            koszykRepositoryMock.Setup(m => m.PobierzKoszyk()).Returns(new Produkt[0]);
+
+            // act
+            var actual = sut.PobierzKoszykWartosc();
+
+            // assert
+            actual.ShouldBe(0m);
+        }
+
     }
 }

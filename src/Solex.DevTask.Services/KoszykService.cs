@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Solex.DevTask.Api.Models;
@@ -38,7 +39,15 @@ namespace Solex.DevTask.Services
 
         public decimal PobierzKoszykWartosc()
         {
-            throw new NotImplementedException();
+            var produkty = _koszykRepository.PobierzKoszyk();
+
+            var total = 0m;
+            foreach (var produkt in produkty)
+            {
+                total += produkt.Ilosc * (produkt.Ilosc > 10 ? 10 : 5);
+            }
+
+            return total;
         }
     }
 }

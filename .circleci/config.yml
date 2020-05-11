@@ -10,7 +10,8 @@ jobs:
     steps:
       - checkout
       - run: dotnet build
-      - run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=../../TestResults/ /p:CoverletOutputFormat=opencover /p:MergeWith=../../TestResults/coverage.json
+      - run: dotnet test test\Solex.DevTask.Api.Tests\Solex.DevTask.Api.Tests.csproj /p:CollectCoverage=true /p:CoverletOutput=../../TestResults/
+      - run: dotnet test test\Solex.DevTask.Services.Tests\Solex.DevTask.Services.Tests.csproj /p:CollectCoverage=true /p:MergeWith=../../TestResults/coverage.json /p:CoverletOutputFormat=opencover
       - run: 
           shell: powershell.exe
           command: .\.circleci\codecov.ps1 -token 948aac85-7d24-42b3-8fb9-1dd6bf34b0da -fName .\TestResults\coverage.opencover.xml
